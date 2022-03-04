@@ -1,0 +1,12 @@
+{
+    "name": "eba/telebirr",
+    "description": "Telebirr integration",
+    "type": "library",
+    "authors": [
+        {
+            "name": "eba-alemayehu",
+            "email": "31594849+eba-alemayehu@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
