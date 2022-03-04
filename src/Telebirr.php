@@ -5,7 +5,7 @@ use phpseclib3\Crypt\PublicKeyLoader;
 
 class Telebirr
 {
-    private $api = "http://196.188.120.3:10443/service-openup/toTradeWebPay";
+    private $api;
     private $app_id;
     private $ussd;
     private $sign;
@@ -13,8 +13,10 @@ class Telebirr
     private $rsa_public_key;
 
     function __construct($app_id, $app_key, $public_key, $notify_url, $receive_name, $return_url, $short_code, $subject,
-                         $timeout_express, $total_amount, $nonce, $out_trade_no)
+                         $timeout_express, $total_amount, $nonce, $out_trade_no,
+                         $api = "http://196.188.120.3:10443/service-openup/toTradeWebPay")
     {
+        $this->api = $api;
         $this->app_id = $app_id;
         $ussd = [
             "appId" => $this->app_id,
