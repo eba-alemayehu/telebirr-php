@@ -8,5 +8,11 @@
             "email": "31594849+eba-alemayehu@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.4",
+        "phpseclib/phpseclib": "^3.0"
+    },
+    "autoload": {
+        "psr-0": {"Telebirr": "src/"}
+    }
 }
