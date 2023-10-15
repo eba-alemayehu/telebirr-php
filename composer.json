@@ -1,20 +1,15 @@
 {
-    "name": "eba/telebirr",
-    "description": "Telebirr integration",
-    "license": "MIT",
-    "type": "library",
-    "minimum-stability": "dev",
+    "name": "eba/telebirr-php",
+    "autoload": {
+        "psr-4": {
+            "Eba\\TelebirrPhp\\": "src/"
+        }
+    },
     "authors": [
         {
-            "name": "eba-alemayehu",
+            "name": "Eba Aleamyehu",
             "email": "ebaalemayhu3@gmail.com"
         }
     ],
-    "require": {
-        "guzzlehttp/guzzle": "^7.4",
-        "phpseclib/phpseclib": "^3.0"
-    },
-    "autoload": {
-        "psr-0": {"Telebirr": "src/"}
-    }
+    "require": {}
 }

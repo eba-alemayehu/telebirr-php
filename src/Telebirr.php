@@ -1,5 +1,5 @@
 <?php
-namespace telebirr;
+namespace Eba\TelebirrPhp;
 
 use phpseclib3\Crypt\PublicKeyLoader;
 
