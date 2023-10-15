@@ -101,7 +101,7 @@ class Telebirr
 
     public static function decrypt_RSA($public_key, $data=null)
     {
-        $data_from_telebirr = PublicKeyLoader::load($data == null ? file_get_contents('php://input'): $data);
+        $data_from_telebirr = $data == null ? file_get_contents('php://input'): $data;
         $DECRYPT_BLOCK_SIZE = 256;
         $decrypted = '';
 
@@ -111,7 +111,7 @@ class Telebirr
         foreach ($data as $chunk) {
             $partial = '';
 
-            $decryptionOK = openssl_public_decrypt($chunk, $partial, $public_key, OPENSSL_PKCS1_PADDING);
+            $decryptionOK = openssl_public_decrypt($chunk, $partial, PublicKeyLoader::load($public_key), OPENSSL_PKCS1_PADDING);
 
             if ($decryptionOK === false) {
                 return false;
