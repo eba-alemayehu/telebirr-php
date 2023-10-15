@@ -1,4 +1,5 @@
 <?php
+namespace telebirr;
 require 'vendor/autoload.php';
 
 use phpseclib3\Crypt\PublicKeyLoader;
