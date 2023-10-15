@@ -99,9 +99,9 @@ class Telebirr
         return $response;
     }
 
-    public static function decrypt_RSA($public_key)
+    public static function decrypt_RSA($public_key, $data=null)
     {
-        $data_from_telebirr = file_get_contents('php://input');
+        $data_from_telebirr = $data == null ? file_get_contents('php://input'): $data;
         $DECRYPT_BLOCK_SIZE = 256;
         $decrypted = '';
 
