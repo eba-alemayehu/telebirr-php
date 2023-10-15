@@ -101,7 +101,7 @@ class Telebirr
 
     public static function decrypt_RSA($public_key, $data=null)
     {
-        $data_from_telebirr = $data == null ? file_get_contents('php://input'): $data;
+        $data_from_telebirr = PublicKeyLoader::load($data == null ? file_get_contents('php://input'): $data);
         $DECRYPT_BLOCK_SIZE = 256;
         $decrypted = '';
 
