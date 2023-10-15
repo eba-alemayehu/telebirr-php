@@ -1,6 +1,5 @@
 <?php
 namespace telebirr;
-require 'vendor/autoload.php';
 
 use phpseclib3\Crypt\PublicKeyLoader;
 
@@ -100,18 +99,19 @@ class Telebirr
         return $response;
     }
 
-    function decrypt_RSA()
+    public static function decrypt_RSA($public_key)
     {
+        $data_from_telebirr = file_get_contents('php://input');
         $DECRYPT_BLOCK_SIZE = 256;
         $decrypted = '';
 
         //decode must be done before spliting for getting the binary String
-        $data = str_split(base64_decode($this->data_from_telebirr), $DECRYPT_BLOCK_SIZE);
+        $data = str_split(base64_decode($data_from_telebirr), $DECRYPT_BLOCK_SIZE);
 
         foreach ($data as $chunk) {
             $partial = '';
 
-            $decryptionOK = openssl_public_decrypt($chunk, $partial, $this->rsa_public_key, OPENSSL_PKCS1_PADDING);
+            $decryptionOK = openssl_public_decrypt($chunk, $partial, $public_key, OPENSSL_PKCS1_PADDING);
 
             if ($decryptionOK === false) {
                 return false;
